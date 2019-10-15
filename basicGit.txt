@@ -25,3 +25,13 @@ git config --global user.name pb
 git config --global user.email angela9211@hotmail.com.tw
 清空指令
 clear
+
+============================================
+git 紀錄最新commit版本hash id
+cat .git/refs/heads/master
+============================================
+可將不commit 的檔案加到 .gitignore 裡面
+
+
+
+
