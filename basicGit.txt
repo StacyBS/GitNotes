@@ -1,0 +1,20 @@
+pwd 
+ls
+cd 指定目錄
+git init
+git status
+touch xxx.file
+ls
+git add xxx.file
+git commit -m "comments..."
+git log
+
+===========================================
+查看config 設定
+git config --global --list
+修改user.name 
+git config --global user.name pb
+修改user.email
+git config --global user.email angela9211@hotmail.com.tw
+清空指令
+clear
