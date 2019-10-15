@@ -8,6 +8,13 @@ ls
 git add xxx.file
 git commit -m "comments..."
 git log
+可再繼續修改
+git status
+修改完後,一樣重複做...
+git status
+git add xxx.file
+git commit -m "comment..."
+git log
 
 ===========================================
 查看config 設定
