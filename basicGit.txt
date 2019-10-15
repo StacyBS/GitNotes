@@ -32,11 +32,13 @@ cat .git/refs/heads/master
 ============================================
 可將不commit 的檔案加到 .gitignore 裡面
 ============================================
-若repositories是在本機建立的,需push至GitHub,步驟:
+若repositories是在本機建立的,首次需push至GitHub,步驟:
 git remote add <name> <url>
 git push --set-upstream GitNotes master
 這樣才能push上去 , 否則會失敗 
-
+============================================
+從GitHub將資料pull 下來
+git pull
 
 
 
