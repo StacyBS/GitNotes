@@ -56,9 +56,28 @@ git reset --hard
 git checkout master xxx.file
 
 ============================================
+運算特定檔案的hash值
+git hash-object xxx.file
+查詢blob 物件
+git log
+查詢tree 物件
+git cat-file -p master
+查詢tree物件中所有的blob與tree物件
+git cat-file -p <tree hash id>
 
 ============================================
-
+僅將「更新」或「刪除」的檔案變更寫入到索引檔中
+git add -u 
+刪除 - 將工作目錄下的檔案並更新索引檔
+git rm filename
+刪除 - 刪除索引檔中該檔案, 但布刪除工作索引中的檔案
+git rm --cached a.txt
+更名 - 同時更新索引與變更工作目錄下的實體檔案
+git mv oldname newname
+提交 - 把「索引檔」與「目前最新版」比對差異 , 新增一個commit物件
+git commit
+列出「索引檔」中所有檔案
+git ls-files
 ============================================
 
 ============================================
