@@ -113,17 +113,39 @@ git diff                 => 工作目錄 vs 索引
 git diff HEAD            => 工作目錄 vs HEAD
 git diff --cached HEAD   => 索引     vs HEAD
 git diff --cached        => 索引     vs HEAD
-git diff HEAD^ HEAD	     => HEAD^   vs HEAD
+git diff HEAD^ HEAD	 => HEAD^   vs HEAD
 
 
 ========================================================================================
-
+查詢commit物件 or tree物件的內容
+git cat-file -p commit_id <tree_id>
+查詢簡易的 git log (兩種方式)
+git log --pretty=oneline
+git log --pretty=onelinie --abbrev-commit
 
 ========================================================================================
-
+「參照名稱」的實體結構
+每一分支就是一個commit id , 儲存在 .git/refs/heads/ , 會指向並儲存最新commit id 及變更的內容
+git branch
+git log --pretty=oneline
+type .git/refs/heads/branchName
+git cat-file -p <commit_id>
+查看最新版變更內容
+git show <commit_id>
 
 ========================================================================================
-
+自訂參照名稱
+git update-ref InitialCommit 物件id
+查看該版本的狀態
+git cat-file -p object_id
+git cat-file -p InitialCommit
+建立比較正式的參照名稱
+git update-ref refs/InitialCommit
+查詢所有參照名稱
+git show-ref
+一般參照: 就是物件的參照
+符號參照: 就是一般參照的參照
+git symbolic-ref refs/[符號參照名稱] refs/heads/[一般參照名稱]
 
 ========================================================================================
 
