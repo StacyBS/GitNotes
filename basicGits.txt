@@ -148,10 +148,99 @@ git show-ref
 git symbolic-ref refs/[符號參照名稱] refs/heads/[一般參照名稱]
 
 ========================================================================================
+相對名稱: 找到特定commit物件(參考名稱)後,用相對位置來找其他的commit物件
+參考名稱:S
+^ : 第幾代
+~ : 第幾層
+
+
+========================================================================================
+暫存工作目錄與索引的變更狀態
+git stash (也可以寫成git stash save) 會將所有已列入追蹤(tracked)的檔案建立暫存版
+git stash -u (也可以寫成git stash save -u) 會包括所有已追蹤或未追蹤的檔案,全部都建立成暫存檔
+git stash list 列出所有暫存檔
+git stash pop (也可以指定暫存檔版本,加上 "stash@{id}") 取回暫存檔, 重新合併回來, 並自動將stash 分支刪除
+git stash apply (也可以指定暫存檔版本,加上 "stash@{id}")  取回暫存檔, 重新合併回來, 不會自動將stash 分支刪除
+git stash drop "stash@{id}" 刪除特定版本暫存檔
+git stash clear 刪除所有暫存檔
+
+========================================================================================
+列出 Git for Windows 所有選項
+git config --list
+設定系統層級選項<--system>: 務必使用系統管理員身分執行
+git config --list --system
+git config --system core.autocrlf <true/false> 
+設定使用者層級選項<--global>:沒有權限上的問題
+git config --list --global
+設定儲存區層級<--local>
+git config --list --local
+取得定選項值
+git config <user.name>
+git config <user.email>
+設定特定選項值
+git config <user.name> XXXX
+git config <user.email> xxxx@mail.com
+刪除特定選項值
+git config --unset --system <xxxxxx>
+git config --unset --global <xxxxxx>
+git config --unset --local <xxxxxx>
+Commit 時套用訊息範本
+git config --local commit.template "C:\git_example.txt"
+
+========================================================================================
+標籤(tag)分為兩種: 輕量標籤、標示標籤
+列出、建立、刪除輕量標籤
+git tag
+git tag [tagname]
+git tag [tagname] -d
+查看特定輕量標籤內容
+git cat-file -p [tagname]
+標示標籤物件類型為 tag ; 輕量標籤則為 commit
+
+
+========================================================================================
+版本日誌 git reflog 追蹤並還原變更紀錄
+復原紀錄: git reset "HEAD@{1}" --hard
+
+只要透過指令修改了任何參照(ref)的內容,或是變更任何分支的HEAD參照內容,就會建立歷史紀錄
+-->> commit、checkout、pull、push、merge、reset、clone、branch、rebase、stash
+每一個分支、每一個暫存版本(stash),都會有自己的reflog歷史紀錄,這些資料也全部都會儲存在.git/logs/refs
+
+只顯示特定分支的reflog紀錄
+git reflog <分支名稱>
+顯示每一 reflog 版本中完整的commit內容
+git log -g
+刪除特定的幾個版本的歷史紀錄
+git reflog delete HEAD@{版號}
+設定歷史紀錄的過期時間
+git config --local gc.master.reflogExpire "14 days"
+git config --local gc.master.reflogExpireUnreachable "14 days"
+
+git config --local gc.newbranch.reflogExpire "never"
+git config --local gc.newbranch.reflogExpireUnreachable "never"
+
+清除歷史紀錄
+git reflog expire --expire=now --all
+git gc
+
+========================================================================================
+
+
 
 
 ========================================================================================
 
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
+
+========================================================================================
 
 ========================================================================================
 
