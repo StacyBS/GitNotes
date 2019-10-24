@@ -224,6 +224,34 @@ git reflog expire --expire=now --all
 git gc
 
 ========================================================================================
+合併分支: 合併之前要先切到主分支中,在執行 git merge <分支名稱>
+刪除分支:
+若該分支沒有合併過: git branch -D xxxx
+若該分支有合併過: git branch -d xxxx
+
+救回誤刪的分支
+git br
+git reflog
+git branch <分支名稱> object_id
+
+查看衝突內容
+git diff
+
+解決衝突方法
+git add .
+git commit
+此作法會被罵到臭頭,因為會留下衝突說明內容,不建議
+
+做錯了,可以回到上個版本
+git reset --hard ORIG_HEAD
+
+找出衝突的檔案
+git diff
+git status
+git ls-files -u
+
+解決衝突,使用source tree 選擇 Mine or theirs solution
+
 
 
 
