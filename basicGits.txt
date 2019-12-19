@@ -1,6 +1,8 @@
 pwd 
 ls
 cd 指定目錄
+2019/12/19 Stacy demo
+
 git init
 git status
 touch xxx.file
